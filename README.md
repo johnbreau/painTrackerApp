@@ -1,50 +1,98 @@
-# Welcome to your Expo app 👋
+# Pain Tracker App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A React Native application that helps users track pain events using their Apple Watch. The app detects watch taps and logs pain events, with the ability to sync with Apple Health.
 
-## Get started
+## Features
 
-1. Install dependencies
+- Detect watch taps to log pain events
+- Manual pain logging
+- View pain event history
+- Sync with Apple Health (iOS)
+- Haptic feedback on event logging
 
+## Prerequisites
+
+- Node.js (v16 or later)
+- npm or yarn
+- Expo CLI (`npm install -g expo-cli`)
+- iOS Simulator or Android Emulator (or a physical device with Expo Go)
+- For watch functionality, an Apple Watch is recommended
+
+## Getting Started
+
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd PainTrackerApp
+   ```
+
+2. **Install dependencies**
    ```bash
    npm install
    ```
 
-2. Start the app
-
+3. **Start the development server**
    ```bash
    npx expo start
    ```
 
-In the output, you'll find options to open the app in a
+4. **Run on your device**
+   - Scan the QR code with your iPhone's camera (iOS) or the Expo Go app (Android)
+   - Or press `i` for iOS simulator or `a` for Android emulator
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## Using the App
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+1. **Watch Mode**
+   - Tap "Start Watch Mode" to enable tap detection
+   - Tap your watch to log a pain event
+   - The app will vibrate to confirm the event was logged
 
-## Get a fresh project
+2. **Manual Logging**
+   - Tap "Log Pain Manually" to add a pain event without using the watch
 
-When you're ready, run:
+3. **Viewing History**
+   - Scroll through your recent pain events
+   - Each event shows the timestamp and intensity
 
-```bash
-npm run reset-project
-```
+## Apple Health Integration (iOS only)
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+To enable Apple Health integration:
 
-## Learn more
+1. Open the Health app on your iPhone
+2. Go to "Sources" > "PainTracker"
+3. Enable all the data types you want to track
 
-To learn more about developing your project with Expo, look at the following resources:
+## Development
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+### Project Structure
 
-## Join the community
+- `App.js` - Main application component
+- `app.json` - Expo configuration
+- `components/` - Reusable UI components
+- `services/` - Business logic and API calls
+- `utils/` - Utility functions
 
-Join our community of developers creating universal apps.
+### Available Scripts
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+- `npm start` - Start the development server
+- `npm run ios` - Run on iOS simulator
+- `npm run android` - Run on Android emulator
+- `npm test` - Run tests
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+- Built with [Expo](https://expo.dev/)
+- Uses [expo-sensors](https://docs.expo.dev/versions/latest/sdk/sensors/) for motion detection
+- Health data integration with [expo-health-connect](https://docs.expo.dev/versions/latest/sdk/health-connect/)

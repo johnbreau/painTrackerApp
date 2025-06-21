@@ -9,14 +9,26 @@
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.yourname.paintracker",
+      "buildNumber": "1.0.0",
+      "infoPlist": {
+        "NSHealthShareUsageDescription": "PainTracker needs access to your health data to log pain events.",
+        "NSHealthUpdateUsageDescription": "PainTracker needs permission to update your health data with pain events.",
+        "UIBackgroundModes": ["processing", "fetch", "remote-notification"]
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "edgeToEdgeEnabled": true
+      "package": "com.yourname.paintracker",
+      "versionCode": 1,
+      "permissions": [
+        "android.permission.ACTIVITY_RECOGNITION",
+        "android.permission.FOREGROUND_SERVICE"
+      ]
     },
     "web": {
       "bundler": "metro",
@@ -32,6 +44,13 @@
           "imageWidth": 200,
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"
+        }
+      ],
+      "expo-health-connect",
+      [
+        "expo-sensors",
+        {
+          "motionPermission": "Allow PainTracker to access your motion data for watch tap detection."
         }
       ]
     ],
